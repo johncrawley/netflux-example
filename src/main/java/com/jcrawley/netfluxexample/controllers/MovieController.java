@@ -27,10 +27,12 @@ public class MovieController {
 		return movieService.getMovieById(id);
 	}
 	
+	
 	@GetMapping
 	Flux<Movie> getAllMovies(){
 		return movieService.getAllMovies();
 	}
+	
 	
 	@GetMapping("/{id}/events")
 	Flux<MovieEvent> streamMovieEvents(@PathVariable String id){

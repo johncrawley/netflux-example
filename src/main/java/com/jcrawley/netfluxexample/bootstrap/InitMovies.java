@@ -15,8 +15,9 @@ public class InitMovies implements CommandLineRunner {
 	
 	private final MovieRepository movieRepository;
 	
+	
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) throws Exception {	
 		movieRepository.deleteAll()
 			.thenMany(
 				Flux.just("Silence of the Lambs", "The Matrix", "Jurassic Park"
@@ -25,8 +26,6 @@ public class InitMovies implements CommandLineRunner {
 					).subscribe(null, null, () ->{
 						movieRepository.findAll().subscribe(System.out::println);
 					});
-					
-			
 	}
 
 }

@@ -23,11 +23,13 @@ public class MovieServiceImpl implements MovieService {
 	public Mono<Movie> getMovieById(String id) {
 		return movieRepository.findById(id);
 	}
+	
 
 	@Override
 	public Flux<Movie> getAllMovies() {
 		return movieRepository.findAll();
 	}
+	
 	
 	@Override
 	public Flux<MovieEvent> streamMovieEvents(String id){
